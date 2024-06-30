@@ -19,7 +19,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.org.soujava</groupId>
+    <groupId>com.excelfore</groupId>
     <artifactId>pom-editor-maven-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
@@ -31,8 +31,8 @@
 
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
-        <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>https://github.com/soujava/pom-editor-maven-plugin.git</url><!-- it's required by release processes -->
+        <developerConnection>scm:git:git@github.com:veselov/pom-editor-maven-plugin.git</developerConnection>
+        <url>https://github.com/veselov/pom-editor-maven-plugin.git</url><!-- it's required by release processes -->
         <tag>HEAD</tag>
     </scm>
 
@@ -692,16 +692,6 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
                         <configuration>
@@ -744,20 +734,15 @@
         </profile>
     </profiles>
 
-    <distributionManagement>
-        <site>
-            <id>github</id>
-            <url>scm:git:ssh://git@github.com/soujava/pom-editor-maven-plugin.git</url>
-        </site>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>excelfore.public</id>
+      <name>Excelfore OSS Repository</name>
+      <url>https://dev-esync.excelfore.com/artifactory/excelfore.public</url>
+    </repository>
+  </distributionManagement>
+
     <repositories>
         <repository>
             <id>oss.sonatype.org-snapshot</id>
